@@ -18,3 +18,4 @@ RUN apt-get update && apt-get install -y \
 ADD docker-entrypoint.sh /docker-entrypoint.sh
 
 ENTRYPOINT [ '/docker-entrypoint.sh' ]
+CMD ['npm', 'info']
