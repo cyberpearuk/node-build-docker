@@ -19,5 +19,4 @@ EOF
 echo "User $(npm whoami)"
 echo "Registry $(npm config get registry)"
 
-
 exec "$@"

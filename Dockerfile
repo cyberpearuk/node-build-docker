@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y \
 	g++ \
     && rm -rf /var/lib/apt/lists/*
 
-ADD docker-entrypoint.sh /docker-entrypoint.sh
 
-ENTRYPOINT [ '/docker-entrypoint.sh' ]
-CMD ['npm', 'info']
+COPY ./docker-entrypoint.sh /
+ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD ["npm", "info"]
