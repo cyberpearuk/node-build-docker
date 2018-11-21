@@ -3,9 +3,9 @@ set -e
 
 
 # Check for required variables
-test -v NPM_REGISTRY
-test -v NPM_USER
-test -v NPM_PASSWORD
+test -v NPM_REGISTRY || (echo "Missing NPM_REGISTRY variable" && exit 1)
+test -v NPM_USER     || (echo "Missing NPM_USER variable" && exit 1)
+test -v NPM_PASSWORD || (echo "Missing NPM_PASSWORD variable" && exit 1)
 
 NPM_AUTHTOKEN=$(echo -n "$NPM_USER:$NPM_PASSWORD" | openssl base64)
 
