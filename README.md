@@ -6,4 +6,4 @@
 | ---------------- | ------------------------------ |
 | NPM_REGISTRY     | NPM Registry                   |
 | NPM_USER         | NPM Registry username for auth |
-| NPM_PASSWORD     | NPM Registry password for auth  |
+| NPM_PASS         | NPM Registry password for auth |
