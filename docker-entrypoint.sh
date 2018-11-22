@@ -14,6 +14,8 @@ always-auth=true
 _auth=$NPM_AUTHTOKEN
 EOF
 
+cat ~/.npmrc
+
 # Print user and registry
 echo "User $(npm whoami)"
 echo "Registry $(npm config get registry)"
