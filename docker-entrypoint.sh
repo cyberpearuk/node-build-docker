@@ -22,6 +22,5 @@ cat ~/.npmrc
 echo "User $(npm whoami)"
 echo "Registry $(npm config get registry)"
 echo "Email $(npm config get email)"
-echo "Auth $(npm config get _auth)"
 
 exec "$@"
