@@ -16,11 +16,9 @@ _auth=$NPM_AUTHTOKEN
 
 EOF
 
-cat ~/.npmrc
-
 # Print user and registry
-echo "User $(npm whoami)"
+echo "User     $(npm whoami)"
 echo "Registry $(npm config get registry)"
-echo "Email $(npm config get email)"
+echo "Email    $(npm config get email)"
 
 exec "$@"
