@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y \
 	g++ \
     && rm -rf /var/lib/apt/lists/*
 
+RUN npm install -g less less-plugin-autoprefix
 
 COPY ./docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]
