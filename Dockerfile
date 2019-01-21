@@ -1,15 +1,22 @@
 FROM ubuntu:18.04
 
-ENV DEBIAN_FRONTEND=noninteractive
-
 RUN apt-get update && apt-get install -y \
 	zip \
 	curl \
 	git \
-        php7.2 php7.2-xml \
+        wget \
+        gnupg \
     && rm -rf /var/lib/apt/lists/*
 
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN curl -sL https://deb.nodesource.com/setup_9.x | bash -
+
+RUN apt-get update && apt-get install -y \
+	nodejs \
+	build-essential \
+	g++ \
+    && rm -rf /var/lib/apt/lists/*
+
 
 COPY ./docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD ["npm", "info"]

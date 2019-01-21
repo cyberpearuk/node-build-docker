@@ -6,8 +6,8 @@ deploy_live:
     services:
       - docker:dind
     script: 
-     - docker build -t docker.jbuncle.co.uk/jbuncle/php-docker .
-     - docker push docker.jbuncle.co.uk/jbuncle/php-docker
+     - docker build -t docker.jbuncle.co.uk/jbuncle/node-docker .
+     - docker push docker.jbuncle.co.uk/jbuncle/node-docker
     stage: deploy
     only: 
      - master
