@@ -16,7 +16,8 @@ RUN apt-get update && apt-get install -y \
 	g++ \
     && rm -rf /var/lib/apt/lists/*
 
-RUN npm install -g less less-plugin-autoprefix
+RUN npm install -g less less-plugin-autoprefix less-plugin-clean-css \
+    uglify-js
 
 COPY ./docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]
