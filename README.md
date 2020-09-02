@@ -15,4 +15,4 @@ Docker image for building node projects (that publish and use a private reposito
 
 ## Maintainer
 
-This repository is maintained by [www.cyberpear.co.uk](https://www.cyberpear.co.uk).
+This repository is maintained by [www.blackpeardigital.co.uk](https://www.blackpeardigital.co.uk).
