@@ -4,14 +4,12 @@ Docker image for building node projects (that publish and use a private reposito
 
 ## Environment Variables
 
-| Variable         | Description                    |
-| ---------------- | ------------------------------ |
-| NPM_REGISTRY     | NPM Registry                   |
-| NPM_USER         | NPM Registry username for auth |
-| NPM_PASS         | NPM Registry password for auth |
-
-
-
+| Variable             | Description                            |
+| -------------------- | -------------------------------------- |
+| NPM_REGISTRY         | Default NPM Registry                   |
+| NPM_USER             | Default NPM Registry username for auth |
+| NPM_PASS             | Default NPM Registry password for auth |
+| NPM_REGISTRY_{SCOPE} | URL to repository with auth            |
 
 ## Maintainer
 

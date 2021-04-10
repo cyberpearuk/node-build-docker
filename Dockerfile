@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y \
         gnupg \
     && rm -rf /var/lib/apt/lists/*
 
-RUN curl -sL https://deb.nodesource.com/setup_9.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_15.x | bash -
 
 RUN apt-get update && apt-get install -y \
 	nodejs \
@@ -19,6 +19,9 @@ RUN apt-get update && apt-get install -y \
 RUN npm install -g less less-plugin-autoprefix less-plugin-clean-css \
     uglify-js
 
-COPY ./docker-entrypoint.sh /
-ENTRYPOINT ["/docker-entrypoint.sh"]
+COPY ./docker-entrypoint.sh /usr/bin/docker-entrypoint
+COPY ./load-env-npmrc.js /usr/bin/load-env-npmrc
+
+ENTRYPOINT ["docker-entrypoint"]
+
 CMD ["npm", "info"]
