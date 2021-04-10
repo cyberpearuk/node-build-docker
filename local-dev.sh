@@ -15,7 +15,7 @@ build() {
 }
 
 run() {
-    docker run --rm -it -eNPM_REGISTRY=https://default.registry.org/  -eNPM_PASS=defaultpass -eNPM_USER=defaultuser  -eNPM_REGISTRY_MYORG=https://user:pass@my.repository/repository/npm/ ${TAG} cat /root/.npmrc
+    docker run --rm -it -eNPM_REGISTRY=https://default.registry.org/  -eNPM_PASS=defaultpass -eNPM_USER=defaultuser  -eNPM_REGISTRY_MYORG=https://user:pass@my.repository/repository/npm/ ${TAG} npm config list
 }
 
 case $1 in

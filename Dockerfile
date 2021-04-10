@@ -1,22 +1,21 @@
-FROM ubuntu:18.04
+FROM alpine:3.13.4
 
-RUN apt-get update && apt-get install -y \
+RUN apk add --update \
+	bash \
 	zip \
 	curl \
 	git \
-        wget \
-        gnupg \
-    && rm -rf /var/lib/apt/lists/*
-
-RUN curl -sL https://deb.nodesource.com/setup_15.x | bash -
-
-RUN apt-get update && apt-get install -y \
-	nodejs \
-	build-essential \
+	wget \
+	gnupg \
+	build-base \
+	gcc \
 	g++ \
-    && rm -rf /var/lib/apt/lists/*
+	nodejs nodejs-npm
 
-RUN npm install -g less less-plugin-autoprefix less-plugin-clean-css \
+
+RUN npm install -g \
+	npm \
+	less less-plugin-autoprefix less-plugin-clean-css \
     uglify-js
 
 COPY ./docker-entrypoint.sh /usr/bin/docker-entrypoint
