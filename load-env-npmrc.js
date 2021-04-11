@@ -3,6 +3,10 @@
 
 const url = require('url');
 
+function base64(string) {
+    return Buffer.from(string).toString('base64')
+}
+
 function loadProperties() {
     const env = process.env;
 
@@ -21,8 +25,8 @@ function loadProperties() {
         const defaultRegistryHost = defaultRegistryUrl.hostname;
         const defaultRegistryPath = defaultRegistryUrl.pathname;
 
-        npmrcProperties['registry'] =  defaultRegistryUrl.protocol + '//' + defaultRegistryHost + defaultRegistryPath ;
-    
+        npmrcProperties['registry'] = defaultRegistryUrl.protocol + '//' + defaultRegistryHost + defaultRegistryPath;
+
         if (defaultRegistryUrl.username) {
             npmrcProperties['//' + defaultRegistryHost + defaultRegistryPath + ':username'] = defaultRegistryUrl.username;
         }
@@ -31,10 +35,10 @@ function loadProperties() {
         }
 
         if (defaultRegistryUrl.password) {
-            npmrcProperties['//' + defaultRegistryHost + defaultRegistryPath+ ':_password'] = defaultRegistryUrl.password;
+            npmrcProperties['//' + defaultRegistryHost + defaultRegistryPath + ':_password'] = base64(defaultRegistryUrl.password);
         }
         if (Object.hasOwnProperty.call(env, 'NPM_PASS')) {
-            npmrcProperties['//' + defaultRegistryHost + defaultRegistryPath+ ':_password'] = env['NPM_PASS'];
+            npmrcProperties['//' + defaultRegistryHost + defaultRegistryPath + ':_password'] = base64(env['NPM_PASS']);
         }
     }
 
@@ -63,7 +67,7 @@ function loadProperties() {
                 npmrcProperties['//' + registryHost + registryPath + ':username'] = username;
             }
             if (password) {
-                npmrcProperties['//' + registryHost + registryPath + ':_password'] = password;
+                npmrcProperties['//' + registryHost + registryPath + ':_password'] = base64(password);
             }
         }
     }
